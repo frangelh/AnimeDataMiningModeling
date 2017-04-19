@@ -1,0 +1,12 @@
+#!/usr/bin/sh
+singlefile=$1
+cd bin
+if [[ $singlefile != "" ]] ;then
+    ./creatArff -f $singlefile
+    mv "$singlefile.arff" ../ 
+else 
+    ./createFiles
+    ./creatArff ./anim.dat ./real.dat
+    mv output.arff ../
+fi
+cd ../
